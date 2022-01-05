@@ -62,7 +62,7 @@ def getCaptchaPiece():
 def solveCaptcha():
     attempts = 0
     while checkCheckbox() is False:
-        #time.sleep(random.randint(1, 10))
+        # time.sleep(random.randint(1, 10))
         if attempts == 0:
             getCaptcha()
         else:
@@ -70,8 +70,11 @@ def solveCaptcha():
 
         getCaptchaPiece()
         solver = PuzzleSolver("piece.png", "captcha.png")
-        distance = solver.get_position()
-        dragSlider(distance)
+        try:
+            distance = solver.get_position()
+            dragSlider(distance)
+        except:
+            pass
         attempts += 1
 
 
@@ -113,5 +116,6 @@ def main():
     print("Success!!")
     driver.quit()
     quit()
+
 
 main()

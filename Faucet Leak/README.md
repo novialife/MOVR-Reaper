@@ -1,4 +1,12 @@
-Usage:
+Faucet Tap for the $MOVR
 
-1. Select amount of clients in the range in main.py
-2. run main.py
+Algorithm:
+
+ 1. Import Metamask Wallet
+ 2. Add Moonriver network and switch to it
+ 3. Load movr.supply
+ 4. Perform captcha
+ 5. Connect to empty account
+ 6. Receive
+ 7. Send to main wallet
+ 8. Repeat 1-7 three times with 15 min apart from each other
