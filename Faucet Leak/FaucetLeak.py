@@ -101,11 +101,39 @@ def dragSlider(distance):
     time.sleep(3)
 
 
+def importMMWallet():
+    wait_for_f8()
+    # driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/div/button").click()
+    # time.sleep(1)
+    # driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/div[2]/div/div[2]/div[1]/button").click()
+    # time.sleep(1)
+    # driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/div/div[5]/div[1]/footer/button[2]").click()
+    # time.sleep(1)
+    driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/form/div[4]/div[1]/div/input").send_keys('entry asset tip drum green month one meat initial kick jealous elite')
+    time.sleep(1)
+    driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/form/div[4]/div[1]/div/input").send_keys('hejhej123')
+    time.sleep(1)
+    driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/form/div[4]/div[1]/div/input").send_keys('hejhej123')
+    time.sleep(1)
+    driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/form/div[7]/div").click()
+    time.sleep(1)
+    driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/form/button").click()
+
+
+pass
+
+
 def main():
     global driver
     options = webdriver.ChromeOptions()
     options.add_extension('extension_10_8_1_0.crx')
-    driver = webdriver.Chrome("C:/Users/mervan/Desktop/chromedriver.exe", options=options)
+    driver = webdriver.Chrome("C:/Users/merva/Desktop/chromedriver.exe", options=options)
+    # try:
+    #     driver = webdriver.Chrome("C:/Users/merva/Desktop/chromedriver.exe", options=options)
+    # except:
+    #     pass
+    time.sleep(5)
+    importMMWallet()
     driver.execute_script("window.open('https://movr.supply');")
 
     windows = driver.window_handles
