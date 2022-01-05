@@ -9,6 +9,7 @@ from selenium.webdriver import ActionChains
 
 from solver import PuzzleSolver
 
+
 warnings.filterwarnings("ignore")
 
 
@@ -102,23 +103,26 @@ def dragSlider(distance):
 
 
 def importMMWallet():
-    wait_for_f8()
+
     # driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/div/button").click()
     # time.sleep(1)
     # driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/div[2]/div/div[2]/div[1]/button").click()
     # time.sleep(1)
     # driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/div/div[5]/div[1]/footer/button[2]").click()
     # time.sleep(1)
-    driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/form/div[4]/div[1]/div/input").send_keys('entry asset tip drum green month one meat initial kick jealous elite')
+    driver.get("chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/home.html#initialize/create-password/import-with-seed-phrase")
+    time.sleep(5)
+    driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/form/div[4]/div[1]/div/input")[0].send_keys('entry asset tip drum green month one meat initial kick jealous elite')
     time.sleep(1)
-    driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/form/div[4]/div[1]/div/input").send_keys('hejhej123')
+    driver.find_elements_by_xpath("//*[@id='password']")[0].send_keys('hejhej123')
     time.sleep(1)
-    driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/form/div[4]/div[1]/div/input").send_keys('hejhej123')
+    driver.find_elements_by_xpath("//*[@id='confirm-password']")[0].send_keys('hejhej123')
     time.sleep(1)
-    driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/form/div[7]/div").click()
+    driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/form/div[7]/div")[0].click()
     time.sleep(1)
-    driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/form/button").click()
-
+    driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/form/button")[0].click()
+    time.sleep(6)
+    driver.find_elements_by_xpath("//*[@id='app-content']/div/div[2]/div/div/button")[0].click()
 
 pass
 
@@ -127,7 +131,7 @@ def main():
     global driver
     options = webdriver.ChromeOptions()
     options.add_extension('extension_10_8_1_0.crx')
-    driver = webdriver.Chrome("C:/Users/merva/Desktop/chromedriver.exe", options=options)
+    driver = webdriver.Chrome("/Users/supersam1995/Downloads/chromedriver", options=options)
     # try:
     #     driver = webdriver.Chrome("C:/Users/merva/Desktop/chromedriver.exe", options=options)
     # except:
@@ -135,15 +139,13 @@ def main():
     time.sleep(5)
     importMMWallet()
     driver.execute_script("window.open('https://movr.supply');")
-
     windows = driver.window_handles
     windows = close_window(windows, 1)
-
     change_window(windows, 1)
     solveCaptcha()
     print("Success!!")
-    driver.quit()
-    quit()
+    # driver.quit()
+    # quit()
 
 
 main()
